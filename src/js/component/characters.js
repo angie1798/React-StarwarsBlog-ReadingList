@@ -10,11 +10,12 @@ export const Characters = () => {
 				<div className="row">
 					<div className="col-4">
 						<Card />
+						{/**Gender, hair y eye color */}
 					</div>
-				</div>{" "}
-				{/*cierre de div row*/}
-			</div>{" "}
-			{/*cierre de div scroll*/}
+				</div>
+				{/**cierre de div row*/}
+			</div>
+			{/**cierre de div scroll*/}
 		</div>
 	);
 };
