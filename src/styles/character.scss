@@ -1,0 +1,36 @@
+h1{
+    color: #FACE2A;
+}
+.card{
+    width: 100%;
+    background-color: #424242;
+    color: white;
+    
+}
+.scroll > .row{
+    display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto; 
+}
+.scroll > .row > .col-3{
+    flex: 0 0 auto;
+}
+.contenedor{
+    margin-bottom: 100px;
+}
+body ::-webkit-scrollbar{ 
+    background-color: black;
+    border-radius: 10px;
+    width: 5px;
+}
+.row::-webkit-scrollbar-track{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+.row::-webkit-scrollbar-thumb{
+    background-color: #FACE2A;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
