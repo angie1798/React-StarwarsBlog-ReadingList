@@ -6,6 +6,7 @@ import { Card } from "../component/card";
 
 export const Characters = () => {
 	const { store, actions } = useContext(Context);
+
 	return (
 		<div className="contenedor">
 			<h1>Characters</h1>

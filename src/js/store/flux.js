@@ -44,8 +44,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch(fetchUrl)
 					.then(response => response.json())
 					.then(result => {
-						console.log("people***", result);
-						setStore({ people: result.results });
+						setStore({ character: result.results });
 					})
 					.catch(error => console.log("error", error));
 			}

@@ -13,7 +13,7 @@ export const Card = props => {
 				/>
 				<div className="card-body">
 					<h5 className="card-title">{props.name}</h5>
-					<p className="card-text" />
+					<p className="card-text">{props.details} </p>
 					<a href="#" className="btn btn-outline-primary float-left">
 						Learn more!
 					</a>
@@ -27,5 +27,6 @@ export const Card = props => {
 };
 
 Card.propTypes = {
-	name: Props.object
+	name: Props.string,
+	details: Props.string
 };
