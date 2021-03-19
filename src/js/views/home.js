@@ -4,6 +4,7 @@ import "../../styles/home.scss";
 import { Characters } from "../component/characters";
 import { Planets } from "../component/planets";
 import { Context } from "../store/appContext";
+import { Link } from "react-router-dom";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);

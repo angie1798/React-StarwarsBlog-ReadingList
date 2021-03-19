@@ -1,6 +1,7 @@
 import React from "react";
 import "../../styles/character.scss";
 import Props from "prop-types";
+import { Link } from "react-router-dom";
 
 export const Card = props => {
 	return (
@@ -14,9 +15,9 @@ export const Card = props => {
 				<div className="card-body">
 					<h5 className="card-title">{props.name}</h5>
 					<p className="card-text">{props.details} </p>
-					<a href="#" className="btn btn-outline-primary float-left">
-						Learn more!
-					</a>
+					<Link to="/personaje">
+						<a className="btn btn-outline-primary float-left">Learn more!</a>
+					</Link>
 					<a href="#" className="btn btn-outline-warning float-right">
 						<i className="far fa-heart" />
 					</a>
