@@ -51,6 +51,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(error => console.log("error", error));
 			},
 
+			getdetail: () => {},
+
 			getInfoPlanets: () => {
 				let fetchUrl = "https://www.swapi.tech/api/planets/";
 				fetch(fetchUrl)

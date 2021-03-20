@@ -6,7 +6,6 @@ import { Card } from "../component/card";
 
 export const Characters = () => {
 	const { store, actions } = useContext(Context);
-
 	return (
 		<div className="contenedor">
 			<h1>Characters</h1>
@@ -15,7 +14,7 @@ export const Characters = () => {
 					{store.character.map((item, index) => {
 						return (
 							<div className="col-4" key={index}>
-								<Card name={item.name} />
+								<Card name={item.name} url={item.url} it={index} />
 							</div>
 						);
 					})}
