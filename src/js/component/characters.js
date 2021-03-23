@@ -14,7 +14,7 @@ export const Characters = () => {
 					{store.character.map((item, index) => {
 						return (
 							<div className="col-4" key={index}>
-								<Card name={item.name} url={item.url} it={index} />
+								<Card name={item.name} url={item.url} it={"/personaje/" + index} />
 							</div>
 						);
 					})}

@@ -60,7 +60,7 @@ export const Card = props => {
 					<p className="card-text">
 						{url ? (url.includes("people") ? (detalle ? infoCharacter() : "") : infoPlanet()) : ""}
 					</p>
-					<Link to={"/personaje/" + props.it}>
+					<Link to={props.it}>
 						<a className="btn btn-outline-primary float-left" onClick={props.funcion}>
 							Learn more!
 						</a>
@@ -79,5 +79,5 @@ Card.propTypes = {
 	details: Props.string,
 	url: Props.string,
 	funcion: Props.func,
-	it: Props.number
+	it: Props.string
 };

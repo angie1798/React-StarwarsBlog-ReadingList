@@ -13,11 +13,8 @@ export const Navbar = () => {
 					/>
 				</span>
 			</Link>
-			<div className="ml-auto mr-5 pr-5">
-				<Link to="/demo">
-					<button className="btn btn-secondary">Favorites</button>
-				</Link>
-			</div>
+			<div className="ml-auto mr-5 pr-5"></div>
+			{/*Cierre de div espaciador*/}
 		</nav>
 	);
 };

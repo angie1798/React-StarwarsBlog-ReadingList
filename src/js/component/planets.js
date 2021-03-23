@@ -14,7 +14,7 @@ export const Planets = () => {
 					{store.planets.map((item, index) => {
 						return (
 							<div className="col-4" key={index}>
-								<Card name={item.name} url={item.url} />
+								<Card name={item.name} url={item.url} it={"/planetView/" + index} />
 							</div>
 						);
 					})}
