@@ -102,7 +102,7 @@ export const Personaje = () => {
 									<td>
 										{store.detailsCharacters.properties
 											? getPlanetName(store.detailsCharacters.properties.homeworld)
-											: "Hello amiguis hello"}
+											: ""}
 									</td>
 								</tr>
 							</tbody>
