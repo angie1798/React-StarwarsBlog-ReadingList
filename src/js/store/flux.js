@@ -15,8 +15,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 			],
 			character: [],
 			planets: [],
+			vehicles: [],
+			detailsVehicles: [],
 			detailsCharacters: [],
-			detailsPlanet: []
+			detailsPlanet: [],
+			favorites: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -41,6 +44,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
+			},
+			addFavorite: nombre => {
+				const store = getStore();
+				const favorito = store.favorites;
+				setStore({ favorites: favorito.concat(nombre) });
+			},
+			deleteFavorite: val => {
+				const store = getStore();
+				const favorites = store.favorites.filter((elm, index) => {
+					return val != index;
+				});
+
+				//we have to loop the entire demo array to look for the respective index
+				//and change its color
+				setStore({ favorites: favorites.concat() });
 			},
 			getInfoChar: () => {
 				let fetchUrl = "https://www.swapi.tech/api/people/";
@@ -75,6 +93,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(response => response.json())
 					.then(result => {
 						setStore({ detailsPlanet: result.result });
+					})
+					.catch(error => console.log("error", error));
+			},
+			getInfoVehicle: () => {
+				let fetchUrl = "https://www.swapi.tech/api/vehicles/";
+				fetch(fetchUrl)
+					.then(response => response.json())
+					.then(result => {
+						setStore({ vehicles: result.results });
+					})
+					.catch(error => console.log("error", error));
+			},
+			getDetailVehicle: url => {
+				fetch(url)
+					.then(response => response.json())
+					.then(result => {
+						setStore({ detailsVehicles: result.result });
 					})
 					.catch(error => console.log("error", error));
 			}

@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "../../styles/character.scss";
 import Props from "prop-types";
 import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
 
 export const Card = props => {
+	const { store, actions } = useContext(Context);
 	const [detalle, setDetalle] = useState();
 	const [url, setUrl] = useState();
+	const [fav, setFav] = useState([]);
 
 	useEffect(() => {
 		// Actualiza el título del documento usando la API del navegador
@@ -47,6 +50,22 @@ export const Card = props => {
 			</div>
 		);
 	}
+	function infoVehicle() {
+		return (
+			<div>
+				Model:
+				{" " + detalle.model}
+				<br />
+				Vehicle class:
+				{" " + detalle.vehicle_class}
+			</div>
+		);
+	}
+
+	const agregar = nombre => {
+		setFav([...fav, nombre]);
+		actions.addFavorite(fav);
+	};
 	return (
 		<div>
 			<div className="card">
@@ -58,15 +77,30 @@ export const Card = props => {
 				<div className="card-body">
 					<h5 className="card-title">{props.name} </h5>
 					<p className="card-text">
-						{url ? (url.includes("people") ? (detalle ? infoCharacter() : "") : infoPlanet()) : ""}
+						{url
+							? url.includes("people")
+								? detalle
+									? infoCharacter()
+									: ""
+								: url.includes("planets")
+								? detalle
+									? infoPlanet()
+									: ""
+								: detalle
+								? infoVehicle()
+								: ""
+							: ""}
 					</p>
 					<Link to={props.it}>
-						<a className="btn btn-outline-primary float-left" onClick={props.funcion}>
-							Learn more!
-						</a>
+						<a className="btn btn-outline-primary float-left">Learn more!</a>
 					</Link>
-					<a href="#" className="btn btn-outline-warning float-right">
-						<i className="far fa-heart" />
+					<a className="btn btn-outline-warning float-right">
+						<i
+							className="far fa-heart"
+							onClick={() => {
+								agregar(props.name);
+							}}
+						/>
 					</a>
 				</div>
 			</div>
@@ -78,6 +112,5 @@ Card.propTypes = {
 	name: Props.string,
 	details: Props.string,
 	url: Props.string,
-	funcion: Props.func,
 	it: Props.string
 };
